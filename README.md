@@ -106,11 +106,10 @@ O Pale Garden é um bioma **raro**. Para encontrá-lo:
 
 Este é um mod **simplificado** comparado ao Minecraft original:
 
-- ❌ Sem resina (resin)
 - ❌ Sem Eyeblossoms
 - ❌ Modelo do Creaking usa placeholder (esqueleto)
 - ❌ Comportamento do Creaking é básico
-- ⚠️ Texturas não incluídas
+
 
 ## Compatibilidade
 
