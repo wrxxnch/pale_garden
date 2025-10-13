@@ -76,20 +76,9 @@ O Pale Garden é um bioma **raro**. Para encontrá-lo:
 [Tronco Pale Oak] → 4x Tábuas Pale Oak
 ```
 
-### Creaking Heart (para testes):
-```
-[Tronco] [Tronco] [Tronco]
-[Tronco] [Diamante] [Tronco]
-[Tronco] [Tronco] [Tronco]
-```
+### Texturas 
 
-## Texturas
-
-**IMPORTANTE**: Este mod vem **SEM texturas**! Você precisa adicionar as texturas manualmente.
-
-### Texturas Necessárias:
-
-Crie uma pasta `pale_garden/textures/` e adicione:
+`pale_garden/textures/` :
 
 **Blocos:**
 - `pale_oak_log.png` - Lateral do tronco
