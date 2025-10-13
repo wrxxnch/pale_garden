@@ -11,7 +11,7 @@ minetest.register_entity("pale_garden:creaking", {
         visual = "mesh",
         mesh = "creaking.x", -- Modelo correto do Creaking
         textures = {"creaking.png"},
-        visual_size = {x=1, y=1}, -- Tamanho padrão (modelo já vem no tamanho certo)
+        visual_size = {x=20, y=20}, -- Tamanho padrão (modelo já vem no tamanho certo)
         makes_footstep_sound = true,
         stepheight = 1.1,
         automatic_rotate = 0, -- Desativa rotação automática
@@ -24,11 +24,17 @@ minetest.register_entity("pale_garden:creaking", {
     frozen = false,
     target = nil,
     
-    -- Inicialização
     on_activate = function(self, staticdata)
         self.object:set_armor_groups({immortal = 1})
         self.timer = 0
         self.attack_timer = 0
+
+        -- Corrige posição vertical (ajuste fino)
+        local pos = self.object:get_pos()
+        if pos then
+            pos.y = pos.y - 3.5 -- Ajuste pra modelo grande
+            self.object:set_pos(pos)
+        end
     end,
     
     -- Comportamento principal

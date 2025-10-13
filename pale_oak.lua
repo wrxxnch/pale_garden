@@ -154,22 +154,68 @@ minetest.register_node("pale_garden:pale_hanging_moss_tip", {
     sounds = mcl_sounds.node_sound_leaves_defaults(),
 })
 
--- Registra porta de Pale Oak
-minetest.register_node("pale_garden:pale_oak_door_bottom", {
-    description = "Porta de Carvalho Pálido",
-    tiles = {"default_pale_oak_door_bottom.png"},
-    inventory_image = "default_pale_oak_door_bottom.png",
-    wield_image = "default_pale_oak_door_bottom.png",
-    groups = {handy=1, axey=1, door=1, material_wood=1},
-    sounds = mcl_sounds.node_sound_wood_defaults(),
+local S = minetest.get_translator("pale_garden")
+
+if mcl_doors and mcl_doors.register_door then
+    mcl_doors:register_door("pale_garden:pale_oak_door", {
+        description = S("Porta de Carvalho Pálido"),
+        _doc_items_longdesc = S("Porta feita de madeira de Carvalho Pálido."),
+        _doc_items_usagehelp = S("Clique com o botão direito para abrir ou fechar."),
+        inventory_image = "default_pale_oak_door_item.png",
+        groups = {handy=1, axey=1, flammable=3, door_wood=1, material_wood=1},
+        _mcl_hardness = 2,
+        tiles_bottom = {"default_pale_oak_door_bottom.png", "default_stripped_pale_oak_wood.png"},
+        tiles_top = {"default_pale_oak_door_top.png", "default_stripped_pale_oak_wood.png"},
+        sounds = mcl_sounds.node_sound_wood_defaults(),
+        sound_open = "doors_wood_door_open",
+        sound_close = "doors_wood_door_close",
+
+        -- ✅ Craft embutido no padrão do MineClonia
+        recipe = {
+            {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+            {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+            {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+        },
+    })
+end
+if mcl_doors and mcl_doors.register_trapdoor then
+    mcl_doors:register_trapdoor("pale_garden:pale_oak_trapdoor", {
+        description = S("Alçapão de Carvalho Pálido"),
+        _doc_items_longdesc = S("Alçapão feito de madeira de Carvalho Pálido."),
+        _doc_items_usagehelp = S("Clique com o botão direito para abrir ou fechar."),
+        tile_front = "default_pale_oak_trapdoor.png",
+        tile_side = "default_stripped_pale_oak_wood.png",
+        inventory_image = "default_pale_oak_trapdoor.png",
+        groups = {handy=1, axey=1, flammable=3, door_wood=1, material_wood=1},
+        _mcl_hardness = 2,
+        sounds = mcl_sounds.node_sound_wood_defaults(),
+        sound_open = "doors_wood_door_open",
+        sound_close = "doors_wood_door_close",
+
+        -- ✅ Craft embutido no padrão do MineClonia
+        recipe = {
+            {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+            {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+        },
+    })
+end
+
+
+minetest.register_craft({
+    output = "pale_garden:pale_oak_door",
+    recipe = {
+        {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+        {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+        {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+    }
 })
 
--- Registra alçapão de Pale Oak
-minetest.register_node("pale_garden:pale_oak_trapdoor", {
-    description = "Alçapão de Carvalho Pálido",
-    tiles = {"default_pale_oak_trapdoor.png"},
-    groups = {handy=1, axey=1, trapdoor=1, material_wood=1},
-    sounds = mcl_sounds.node_sound_wood_defaults(),
+minetest.register_craft({
+    output = "pale_garden:pale_oak_trapdoor",
+    recipe = {
+        {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+        {"mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks", "mcl_core:pale_oak_planks"},
+    }
 })
 
 -- Craft: Tronco -> Tábuas
