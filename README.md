@@ -135,10 +135,5 @@ Este é um mod **simplificado** comparado ao Minecraft original:
 
 MIT License - Livre para usar e modificar
 
-## Autor
-
-Criado por Manus AI para a comunidade Minetest/Mineclonia
-
----
 
 **Divirta-se explorando o Pale Garden! 🌲👻**
